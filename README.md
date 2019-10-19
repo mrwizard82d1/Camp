@@ -50,16 +50,16 @@ file at the root of your project:
   :license {:name "BSD"
             :url "http://www.opensource.org/licenses/BSD-3-Clause"
             :distribution :repo}
-  :dependencies [[Clojure "1.6.0.1"]
+  :dependencies [[Clojure "1.8.0"]
                  [NUnit "2.6.4"]
                  [Microsoft.Net.Http "2.2.28"]])
 ```
 
 Note: the version specifier uses nuget's
 [version range notation](http://docs.nuget.org/Create/Versioning), so
-"1.6.0.1" actually means ">= 1.6.0.1". If you want to use exactly
-"1.6.0.1", you need to surround it in brackets, so the dependency
-spec would be like '[Clojure "[1.6.0.1]"]'.
+"1.8.0" actually means ">= 1.8.0". If you want to use exactly
+"1.8.0", you need to surround it in brackets, so the dependency
+spec would be like '[Clojure "[1.8.0]"]'.
 
 There is also a rudimentary template for building an OWIN based, self-hosted web application:
 
@@ -72,7 +72,7 @@ fetch the dependencies.
 
 ```shell
 $ camp deps
-Installing [Clojure 1.6.0.1]
+Installing [Clojure 1.8.0]
 Installing [NUnit 2.6.4]
 Installing [Microsoft.Net.Http 2.2.28]
 ```
@@ -85,7 +85,7 @@ $ ls packages
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
-d-----        2/20/2015   6:28 AM                Clojure.1.6.0.1
+d-----        2/20/2015   6:28 AM                Clojure.1.8.0
 d-----        2/21/2015  10:46 AM                Microsoft.Bcl.1.1.9
 d-----        2/21/2015  10:46 AM                Microsoft.Bcl.Build.1.0.14
 d-----        2/21/2015  10:46 AM                Microsoft.Net.Http.2.2.28
