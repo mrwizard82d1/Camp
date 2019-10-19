@@ -5,7 +5,7 @@
 
   <UsingTask TaskName="SetEnvironmentVariable"
              TaskFactory="CodeTaskFactory"
-             AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v$(MSBuildToolsVersion).dll">
+             AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
 
     <ParameterGroup>
       <Name ParameterType="System.String" Required="true" />
@@ -31,7 +31,7 @@
     <ToolsDir>tools\</ToolsDir>
     <ClojureCompiler>$(ToolsDir)Clojure.Compile.exe</ClojureCompiler>
     <PackagesDir>packages\</PackagesDir>
-    <ClojurePackageDir>$(PackagesDir)Clojure.1.6.0.1\</ClojurePackageDir>
+    <ClojurePackageDir>$(PackagesDir)Clojure.1.8.0\</ClojurePackageDir>
     <TargetsDir>targets\</TargetsDir>
     <TestProjectName>test-project</TestProjectName>
     <ChocoExe>$(PackagesDir)chocolatey.0.9.8.28\tools\chocolateyInstall\chocolatey.cmd</ChocoExe>
@@ -43,8 +43,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Libs Include="$(ClojurePackageDir)lib\net40\*.dll" />
-    <Libs Include="$(PackagesDir)Nuget.Core.2.8.3\lib\net40-Client\NuGet.Core.dll" />
+    <Libs Include="$(CLJCLR)\*.dll" />
+    <Libs Include="$(PackagesDir)Nuget.Core.2.8.5\lib\net40-Client\NuGet.Core.dll" />
     <Libs Include="$(PackagesDir)Westwind.RazorHosting.3.00\lib\net40\Westwind.RazorHosting.dll" />
     <Libs Include="$(PackagesDir)Microsoft.AspNet.Razor.3.2.3\lib\net45\*.dll" />
   </ItemGroup>
