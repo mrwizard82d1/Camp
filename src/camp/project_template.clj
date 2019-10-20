@@ -19,6 +19,22 @@
     
     (println "Created a new ClojureCLR webapp camp project named" name ".")))
 
+(defn lib
+  "Create a ClojureCLR lib project."
+  [{:keys [name safe-name] :as project} & _]
+  (let [model (t/project->model project)
+        asm (assembly-load "camp.resources")
+        render (fn [t f]
+                 (t/render-template-to-file model asm (str "templates." t) f))]
+    (cio/mkdir name)
+    (render "lib.project.clj" (cio/file name "project.clj"))
+    (render "gitignore" (cio/file name ".gitignore"))
+    (cio/mkdir (cio/file name "src"))
+    (cio/mkdir (cio/file name "src" safe-name))
+    (render "lib.core.clj" (cio/file name "src" safe-name "core.clj"))
+    
+    (println "Created a new ClojureCLR lib camp project named" name ".")))
+
 (defn default
   "Create a default project, which has a core.clj and produces an exe."
   [{:keys [name safe-name] :as project} & _]

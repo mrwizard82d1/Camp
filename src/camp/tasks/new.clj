@@ -30,6 +30,9 @@
   <default>
   Creates a project.clj, README, and core.clj.
   
+  lib
+  Creates a project.clj, README, and core.clj for a Clojure source library.
+  
   webapp
   Creates a web application project, using OWIN, with all the
   necessary dependencies, a project.clj, and a core.clj that

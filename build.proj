@@ -63,6 +63,12 @@
     <Resources Include="resources\templates\core.clj.razor">
       <LogicalName>templates.core.clj</LogicalName>
     </Resources>
+    <Resources Include="resources\templates\lib\project.razor">
+      <LogicalName>templates.lib.project.clj</LogicalName>
+    </Resources>
+    <Resources Include="resources\templates\lib\core.clj.razor">
+      <LogicalName>templates.lib.core.clj</LogicalName>
+    </Resources>
     <Resources Include="resources\templates\webapp\project.razor">
       <LogicalName>templates.webapp.project.clj</LogicalName>
     </Resources>
@@ -140,6 +146,12 @@
   <Target Name="TestNew" DependsOnTargets="Compile">
     <RemoveDir Directories="$(TestProjectName)" />
     <Exec Command="$(TargetsDir)camp.exe new $(TestProjectName)"
+          WorkingDirectory="$(MSBuildThisFileDirectory)" />
+  </Target>
+
+  <Target Name="TestNewLib" DependsOnTargets="Compile">
+    <RemoveDir Directories="$(TestProjectName)" />
+    <Exec Command="$(TargetsDir)camp.exe new lib $(TestProjectName)"
           WorkingDirectory="$(MSBuildThisFileDirectory)" />
   </Target>
 
