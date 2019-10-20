@@ -57,6 +57,9 @@
     <Resources Include="resources\templates\gitignore.razor">
       <LogicalName>templates.gitignore</LogicalName>
     </Resources>
+    <Resources Include="resources\templates\README.md.razor">
+      <LogicalName>templates.README.md</LogicalName>
+    </Resources>
     <Resources Include="resources\templates\project.razor">
       <LogicalName>templates.project.clj</LogicalName>
     </Resources>
