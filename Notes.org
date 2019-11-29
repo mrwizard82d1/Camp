@@ -293,3 +293,26 @@
 
 *** Sources
     - [[http://docs.nuget.org/create/Creating-and-Publishing-a-Package]["Creating and Publishing a Package", docs.nuget.org]]
+
+* Hacking in 2019 (almost 2020)
+
+** Update Clojure version
+    - Successfully updated tool to use Clojure 1.8.0. (I've had similar issues to others with Clojure 1.9.0 and 
+    `clojure.spec`.) Although, I suspect I've mad changes so that "it works on my machine."
+
+** Handle code with reader conditionals
+    - Reader conditionals were introduced in Clojure 1.7.0 but were not supported by the downloaded version. Changed 
+    the `compile` target to correctly handle `.clj` and `.cljc`.
+
+** Handle newer NuGet packages
+    - So far, this issue has stumped me. The original code relies on `NuGet.Core` "2.8.5". I successfully updated the 
+    code to use "2.14.0"; however, the NuGet project has stopped supporting the NuGet 2 API. The upgrade path for any
+    client is unclear. After trying to understand what was available in NuGet 2 and what is its replacement in 
+    NuGet 4(?), I have given up. Perhaps I'll come back once the NuGet situation is clarified. 
+    
+    I consider replacing the implementation with an implementation using the `nuget.exe` client (avoiding these 
+    version issues altogther). This usage appears to be the solution used by `lein-clr` (an alternative to Camp 
+    created about the same time, but leveraging `leiningen`). However, the work involved in this reimplementation
+    seems more "expensive" than it is worth right now. Perhaps after working with `lein-clr` a bit more, I will 
+    change my mind....
+
