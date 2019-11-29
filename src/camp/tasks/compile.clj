@@ -44,7 +44,8 @@
   (for [path source-paths]
     {:path path
      :sources
-     (for [source-file (io/files path "*.clj" :AllDirectories)
+     (for [source-file (flatten 
+                        (map #(seq (io/files path % :AllDirectories)) ["*.clj" "*.cljc"])) 
            :let [target (source-file->target-assembly project path source-file)]]
        {:path source-file
         :root path
